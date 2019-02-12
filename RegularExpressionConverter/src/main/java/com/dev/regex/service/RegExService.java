@@ -1,7 +1,5 @@
 package com.dev.regex.service;
 
-import com.dev.regex.constants.RegExConstants;
-
 public class RegExService {
 	
 	public void regExProcess(String input) {
@@ -18,37 +16,37 @@ public class RegExService {
 			System.out.println("This is a normal string with digits and numbers");
 		else if(input.matches(getNormalString()))
 			System.out.println("This is a String containing spaces!!");
+		else if(input.matches(getWWWURLRegEx()))
+			System.out.println("This is a URL");
 		else
 			System.out.println("Nothing matched");
 	}
 	
 	public String getEmailRegEx() {
-		String regEx = "[a-z|0-9]+.[a-z|0-9]*@[a-z]+.[a-z]+";
-		return regEx;
+		return "[a-z|0-9]+.[a-z|0-9]*@[a-z]+.[a-z]+";
 	}
 	
 	public String getURLRegEx() {
-		String regEx = "https?:(a-z0-9\\.)?[a-z0-9]\\.[a-z0-9]";
-		return regEx;
+		return "https?:(a-z0-9\\.)?[a-z0-9]\\.[a-z0-9]";
 	}
 	
 	public String getNormalStringWithAplhabets() {
-		String regEx = "("+"[a-z|A-Z]"+")"+"+";
-		return regEx;
+		return "("+"[a-z|A-Z]"+")"+"+";
 	}
 	
 	public String getNormalStringWithDigits() {
-		String regEx = "("+"[0-9]"+")"+"+";
-		return regEx;
+		return "("+"[0-9]"+")"+"+";
 	}
 	
 	public String getNormalStringWithAlphaAndDigits() {
-		String regEx = "("+"[a-z|A-Z|0-9]"+")"+"+";
-		return regEx;
+		return "("+"[a-z|A-Z|0-9]"+")"+"+";
 	}
 	
 	public String getNormalString() {
-		String regEx = "[0-9|a-z|A-Z|"+"\\"+"s]+";
-		return regEx;
+		return "[0-9|a-z|A-Z|"+"\\"+"s]+";
+	}
+	
+	public String getWWWURLRegEx() {
+		return "https?://www"+"\\"+"."+"([a-z|0-9])+"+"\\"+"."+"(com|gov|edu)";
 	}
 }
